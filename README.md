@@ -137,22 +137,6 @@ These experiments were featured in a research seminar and mark the beginning of 
 
 ---
 
-## 📘 Related Publication
-
-A scientific paper describing the algorithm and proposing a new metric for evaluating symbolic regression models is currently under development and will be published on arXiv. Once available, this repository will be updated with:
-
-- 📂 A public dataset and benchmark  
-- 📄 The full paper and citation  
-- 📊 Example result comparisons  
-
----
-
-## 🚀 Getting Started (Coming Soon)
-
-Installation instructions, usage examples, and benchmarks will be added upon release of the final version. In the meantime, feel free to explore the code and notebooks or reach out with questions.
-
----
-
 ## 🧑‍💻 Author
 
 Developed by **Luiz Guilherme Ataliba dos Reis**, a computational physicist and machine learning researcher.  
