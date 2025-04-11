@@ -140,4 +140,4 @@ These experiments were featured in a research seminar and mark the beginning of 
 ## 🧑‍💻 Author
 
 Developed by **Luiz Guilherme Ataliba dos Reis**, a computational physicist and machine learning researcher.  
-For more, visit [LinkedIn](https://www.linkedin.com/) or follow updates on the paper release.
+For more, visit [LinkedIn](www.linkedin.com/in/guilherme-ataliba) or follow updates on the paper release.
