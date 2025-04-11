@@ -43,18 +43,83 @@ The `parallel_algorithms/` directory contains example scripts for running experi
 
 ## 📊 Model Evaluation & Analysis
 
-To study the model’s strengths, weaknesses, and generalization ability, extensive testing was performed under diverse conditions. The notebooks at the root of the repository—especially `data_analysis_build_up.ipynb` and `Analysis.ipynb`—contain detailed insights into:
+To evaluate the performance, scalability, and generalization ability of CSOWP-SR, a series of controlled experiments were conducted. These experiments aimed to uncover the model's behavior under varying hyperparameter configurations, as well as its capacity to discover meaningful symbolic representations in noisy or sparse datasets.
 
-- Model accuracy vs. complexity  
-- Sensitivity to noise and sparse data  
-- Expression compactness and redundancy  
-- Performance of custom metrics (e.g., interpretability scores)
+The Jupyter notebooks `data_analysis_build_up.ipynb` and `Analysis.ipynb` provide a comprehensive walkthrough of these tests, including:
 
-Some analysis can be observed in the following figures:
-![](Figures/RealXPredicted.png)
-![](Figures/RealXPredicted_expanded.png)
+- 📏 Trade-offs between model accuracy and expression complexity  
+- 📉 Sensitivity to noise, sparsity, and data irregularities  
+- 🌿 Expression compactness and tree structure redundancy  
+- 🧪 Performance of custom metrics including interpretability and generalization  
 
-Generated datasets and experimental configurations are stored in the `Generating_results/` directory.
+---
+
+### 🔍 Expression Validation
+
+The figures below present a typical output of the model, comparing predicted vs. real data and visualizing the evolved expression’s complexity, structure, parameters, and performance (MSE).  
+
+<div align="center">
+  <img src="Figures/RealXPredicted.png" width="800"/>
+  <img src="Figures/RealXPredicted_expanded.png" width="800"/>
+</div>
+
+---
+
+### ⏱️ Training Time vs. Hyperparameters
+
+Training time was analyzed as a function of **population size** and **number of generations**. The plots below show how these parameters impact computation cost under different constraints:
+
+<div align="center">
+  <img src="Figures/TrainingTime.png" width="600"/>
+</div>
+
+Key insights:
+- Both population size and generation count scale training time exponentially (logarithmic y-axis).
+- Increasing generations has a **stronger effect** on time than increasing population size.
+- Reducing the search space (e.g., limiting basis functions) leads to faster convergence.
+
+---
+
+### 🎯 Fitness (MSE) vs. Hyperparameters
+
+This plot tracks the model’s fitness (mean squared error) under the same variation of parameters:
+
+<div align="center">
+  <img src="Figures/FitnessScore.png" width="600"/>
+</div>
+
+Observations:
+- Increasing **generations** significantly improves fitness—allowing the model to explore deeper solutions.
+- Increasing **population size** offers diminishing returns after a certain point, forming a performance plateau.
+- These trends suggest that longer evolutionary searches (more generations) can improve accuracy, but also risk **overfitting**.
+
+---
+
+### 🌲 Expression Size and Overfitting
+
+To validate the overfitting hypothesis, we analyzed how expression size (number of nodes in the expression tree) grows with training parameters:
+
+<div align="center">
+  <img src="Figures/NNodes.png" width="600"/>
+</div>
+
+Findings:
+- Expression size increases sharply with the number of generations—correlating with improved fitness but also potential overfitting.
+- Population size has a **less predictable effect**, often stabilizing around a plateau.
+
+---
+
+### 🧬 Example of Discovered Solutions
+
+Here we show actual symbolic expressions evolved by the model for a test problem. In this case, **Particle Swarm Optimization (PSO)** was used to refine constants during evolution:
+
+<div align="center">
+  <img src="Figures/PSO_test.png" width="600"/>
+</div>
+
+This figure highlights how CSOWP-SR combines structural search (tree evolution) with parameter optimization to discover interpretable mathematical models.
+
+📁 All datasets and configuration scripts used in these experiments are available in the `Generating_results/` directory.
 
 ---
 
